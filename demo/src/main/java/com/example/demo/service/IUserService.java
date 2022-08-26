@@ -10,9 +10,11 @@ import java.util.List;
 public interface IUserService {
     List<User> getAllUsers();
 
-    User createUser(CreateUserDto dto);
+    User createUser(CreateUserDto dto, String url);
 
     void deleteUser(Integer userId);
 
     User updateUser(Integer userId, UpdateUserDto dto);
+
+    boolean verify(String code);
 }

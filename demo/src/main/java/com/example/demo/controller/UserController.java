@@ -34,10 +34,10 @@ public class UserController {
                 .collect(Collectors.toList()), HttpStatus.OK);
     }
 
-    @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserDto dto){
-        return new ResponseEntity<UserDto>(modelMapper.map(userService.createUser(dto), UserDto.class), HttpStatus.OK);
-    }
+//    @PostMapping("/")
+//    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserDto dto){
+//        return new ResponseEntity<UserDto>(modelMapper.map(userService.createUser(dto), UserDto.class), HttpStatus.OK);
+//    }
 
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable Integer userId){
@@ -48,4 +48,6 @@ public class UserController {
     public  ResponseEntity<UserDto> updateUser(@PathVariable Integer userId, @RequestBody UpdateUserDto dto){
         return new ResponseEntity<UserDto>(modelMapper.map(userService.updateUser(userId, dto), UserDto.class), HttpStatus.OK);
     }
+
+
 }
