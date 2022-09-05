@@ -1,0 +1,99 @@
+<div class="container text-left">
+    <div class="row">
+        <div class="col-md-6">
+            <span class="field">
+                <label for="username">Username:</label>
+                <br>
+                <input id="username" type="text" pInputText [(ngModel)]="username">
+            </span>
+            <br><br>
+            <span class="field">
+                <label for="password">Password:</label>
+                <br>
+                <p-password id="password" [toggleMask]="true" [(ngModel)]="password">
+                    <ng-template pTemplate="header">
+                        <h6>Pick a password</h6>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <p-divider></p-divider>
+                        <p class="mt-2">Suggestions</p>
+                        <ul class="pl-2 ml-2 mt-0">
+                            <li>At least one lowercase</li>
+                            <li>At least one uppercase</li>
+                            <li>At least one numeric</li>
+                            <li>Minimum 8 characters</li>
+                        </ul>
+                    </ng-template>
+                </p-password>
+            </span>
+            <br><br>
+            <span class="field">
+                <label for="password2">Confirm password:</label>
+                <br>
+                <p-password id="password2" [feedback]="false" [(ngModel)]="confirmPassword"></p-password>
+                <br>
+                <small id="username2-help" *ngIf="password != confirmPassword" class="p-error block">Password didn't
+                    match</small>
+            </span>
+            <br><br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="field-radiobutton">
+                        <p-radioButton name="city" value="Customer" [(ngModel)]="user" inputId="user1"></p-radioButton>
+                        <label for="user1">Customer</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="field-radiobutton">
+                        <p-radioButton name="city" value="Driver" [(ngModel)]="user" inputId="user2"></p-radioButton>
+                        <label for="user2">Driver</label>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row" *ngIf="user === 'Driver'">
+                <div class="col-md-3">
+                    <label for="float-input">Car description:</label>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="carDescription"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <span class="field">
+                <label for="name">Name:</label>
+                <br>
+                <input id="name" type="text" pInputText [(ngModel)]="name">
+            </span>
+            <br><br>
+            <span class="field">
+                <label for="lastName">Lastname:</label>
+                <br>
+                <input id="lastName" type="text" pInputText [(ngModel)]="lastName">
+            </span>
+            <br><br>
+            <span class="field">
+                <label for="phoneNumber">Phone number:</label>
+                <br>
+                <input id="phoneNumber" type="text" pInputText [(ngModel)]="phoneNumber">
+            </span>
+            <br><br>
+            <span class="field">
+                <label for="email">Email:</label>
+                <br>
+                <input id="email" type="text" pInputText [(ngModel)]="email">
+            </span>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <a>
+        <button pButton pRipple type="button" label="Sign up" class="p-button-warning"></button>
+    </a>
+    <a>
+        <button pButton pRipple type="button" label="Login" class="p-button-secondary"
+            style="background-color: black; margin-left: 28%"></button>
+    </a>
+</div>

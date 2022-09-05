@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "iCab-frontend"
+  "cli": {
+    "analytics": false
+  }
 }

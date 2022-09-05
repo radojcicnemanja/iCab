@@ -1,14 +1,26 @@
-<div class="row">
-  <div class="container text-center">
+<div class="container text-left" style="margin-top: 10%;">
+  <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <div style="margin-top: 25%;">
-        <span class="p-float-label">
-            <input type="text" id="inputtext" > 
-            <label for="inputtext">InputText</label>
-            <p-button label="Submit"></p-button>
-        </span>
-    </div>
+      <p-image src="assets/images/logo.png" alt="Image" width="250"></p-image>
+      <br><br>
+      <span class="p-label">
+        <label for="username2" style="margin-right: 1em;">Username:</label>
+        <input id="username2" type="text" pInputText>
+      </span>
+      <br><br>
+      <span class="p-label">
+        <label for="password2" style="margin-right: 1em;">Password:</label>
+        <input id="password2" type="password" pInputText style="margin-left: 1%;">
+      </span>
+      <br><br>
+      <a (click)="show()">
+        <button pButton pRipple type="button" label="Sign up" class="p-button-warning"></button>
+      </a>
+      <a>
+        <button pButton pRipple type="button" label="Login" class="p-button-secondary"
+          style="background-color: black; margin-left: 28%"></button>
+      </a>
     </div>
     <div class="col-md-4"></div>
   </div>
