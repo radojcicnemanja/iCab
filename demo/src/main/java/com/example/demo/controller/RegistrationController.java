@@ -24,7 +24,7 @@ public class RegistrationController {
     @PostMapping("/")
     public String processRegister(@RequestBody CreateUserDto dto, HttpServletRequest request, UriComponentsBuilder ucBuilder)
             throws UnsupportedEncodingException, MessagingException {
-        userService.createUser(dto, getSiteURL(request));
+        userService.createCustomer(dto, getSiteURL(request));
         return "register_success";
     }
 

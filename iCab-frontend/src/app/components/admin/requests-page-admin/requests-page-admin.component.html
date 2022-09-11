@@ -1,0 +1,25 @@
+<p-table [value]="requests" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            Registration requests
+            <p-button icon="pi pi-refresh"></p-button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Driver</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-request>
+        <tr>
+            <td>{{request?.name}}</td>
+            <td></td>            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{requests ? requests.length : 0 }} requests.
+        </div>
+    </ng-template>
+</p-table>

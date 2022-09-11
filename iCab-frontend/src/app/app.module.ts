@@ -9,6 +9,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {PasswordModule} from 'primeng/password';
 import {DividerModule} from 'primeng/divider';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {TabViewModule} from 'primeng/tabview';
+import {TableModule} from 'primeng/table';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -16,12 +18,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationDialog } from './components/dialogs/registration/registrationDialog';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { HomePageAdminComponent } from './components/admin/home-page-admin/home-page-admin.component';
+import { UsersPageAdminComponent } from './components/admin/users-page-admin/users-page-admin.component';
+import { RequestsPageAdminComponent } from './components/admin/requests-page-admin/requests-page-admin.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationDialog
+    RegistrationDialog,
+    LandingPageComponent,
+    HomePageAdminComponent,
+    UsersPageAdminComponent,
+    RequestsPageAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +47,10 @@ import { RegistrationDialog } from './components/dialogs/registration/registrati
     RadioButtonModule,
     PasswordModule,
     DividerModule,
-    InputTextareaModule
+    InputTextareaModule,
+    TabViewModule,
+    TableModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
 
-                .authorizeRequests().antMatchers("/api/registration/**", "/api/login/**").permitAll()		// /auth/**
+                .authorizeRequests().antMatchers("/api/registration/**", "/api/login/").permitAll()		// /auth/**
 
                 .anyRequest().authenticated().and()
 
@@ -70,9 +70,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 
-        web.ignoring().antMatchers(HttpMethod.POST, "/api/login/login");
+        web.ignoring().antMatchers(HttpMethod.POST, "/api/login/");
 
-        web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html",
+        web.ignoring().antMatchers(HttpMethod.GET, "/api/login/whoami/{username}", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html",
                 "/**/*.css", "/**/*.js");
     }
 

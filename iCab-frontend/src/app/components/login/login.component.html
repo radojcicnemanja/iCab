@@ -6,18 +6,18 @@
       <br><br>
       <span class="p-label">
         <label for="username2" style="margin-right: 1em;">Username:</label>
-        <input id="username2" type="text" pInputText>
+        <input id="username2" type="text" pInputText [(ngModel)]="username">
       </span>
       <br><br>
       <span class="p-label">
         <label for="password2" style="margin-right: 1em;">Password:</label>
-        <input id="password2" type="password" pInputText style="margin-left: 1%;">
+        <input id="password2" type="password" pInputText style="margin-left: 1%;" [(ngModel)]="password">
       </span>
       <br><br>
       <a (click)="show()">
         <button pButton pRipple type="button" label="Sign up" class="p-button-warning"></button>
       </a>
-      <a>
+      <a (click)="login()">
         <button pButton pRipple type="button" label="Login" class="p-button-secondary"
           style="background-color: black; margin-left: 28%"></button>
       </a>

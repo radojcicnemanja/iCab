@@ -20,6 +20,7 @@
     "@angular/router": "^14.2.0",
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
+    "jwt-decode": "^3.1.2",
     "primeicons": "^5.0.0",
     "primeng": "^14.0.2",
     "rxjs": "~7.4.0",

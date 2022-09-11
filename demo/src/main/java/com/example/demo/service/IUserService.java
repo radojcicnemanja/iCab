@@ -10,7 +10,9 @@ import java.util.List;
 public interface IUserService {
     List<User> getAllUsers();
 
-    User createUser(CreateUserDto dto, String url);
+    User createCustomer(CreateUserDto dto, String url);
+
+    User createDriver(CreateUserDto dto);
 
     void deleteUser(Integer userId);
 

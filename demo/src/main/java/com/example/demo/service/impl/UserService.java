@@ -49,7 +49,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User createUser(CreateUserDto dto, String siteURL) {
+    public User createCustomer(CreateUserDto dto, String siteURL) {
         String randomCode = RandomString.make(64);
         Customer customer = new Customer(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getVerificationCode());
         customer.setVerificationCode(randomCode);
@@ -68,6 +68,18 @@ public class UserService implements IUserService {
         }
 
         return customerRepository.save(customer);
+    }
+
+    @Override
+    public User createDriver(CreateUserDto dto) {
+        String randomCode = RandomString.make(64);
+        Customer customer = new Customer(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getVerificationCode());
+        customer.setVerificationCode(randomCode);
+
+        List<Role> roles = roleService.findByName("ROLE_CUSTOMER");
+        customer.setRoles(roles);
+
+        customerRepository.save(customer);
     }
 
     @Override

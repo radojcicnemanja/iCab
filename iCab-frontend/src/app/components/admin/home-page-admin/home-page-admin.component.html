@@ -1,0 +1,26 @@
+<h5>Custom Headers</h5>
+<div>
+    <div class="row">
+        <div class="col-md-2">
+            <p>asddddddddd</p>
+        </div>
+        <div class="col-md-10">
+            <p-tabView styleClass="tabview-custom">
+                <p-tabPanel header="Header II">
+                    <ng-template pTemplate="header">
+                        <i class="pi pi-users"></i>
+                        <span>Users</span>
+                    </ng-template>
+                    <app-users-page-admin></app-users-page-admin>
+                </p-tabPanel>
+                <p-tabPanel header="Header III">
+                    <ng-template pTemplate="header">
+                        <i class="pi pi-user-plus"></i>
+                        <span>Requests</span>
+                    </ng-template>
+                    <app-requests-page-admin></app-requests-page-admin>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</div>
