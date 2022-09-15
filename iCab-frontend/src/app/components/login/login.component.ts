@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/dynamicdialog';
 import { LoginUser } from 'src/app/model/loginUser';
 import { RegistrationDialog } from '../dialogs/registration/registrationDialog';
-import { LoginService } from './login.service';
 import jwt_decode from 'jwt-decode';
+import { LoginService } from 'src/app/service/login/login.service';
 
 @Component({
   selector: 'app-login',

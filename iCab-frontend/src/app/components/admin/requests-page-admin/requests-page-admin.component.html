@@ -2,19 +2,36 @@
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
             Registration requests
-            <p-button icon="pi pi-refresh"></p-button>
+            <p-button icon="pi pi-refresh" style="margin-left: 5%;" (click)="refreshRequests()"></p-button>
         </div>
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
-            <th>Driver</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Car</th>
             <th></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-request>
         <tr>
-            <td>{{request?.name}}</td>
-            <td></td>            
+            <td>
+                {{request?.username}}
+            </td>
+            <td>
+                {{request?.name}}
+            </td>
+            <td>
+                {{request?.lastName}}
+            </td>
+            <td>
+                {{request?.carDescription}}
+            </td>  
+            <td>
+                <p-button icon="pi pi-check" style="margin-left: 5%;" (click)="approve(request.username)"></p-button>
+                <p-button icon="pi pi-trash" class="p-button-danger"  style="margin-left: 5%;" (click)="disapprove(request.username)"></p-button>
+            </td>         
         </tr>
     </ng-template>
     <ng-template pTemplate="summary">

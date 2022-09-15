@@ -1,13 +1,17 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.domain.Customer;
+import com.example.demo.domain.Driver;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
 import com.example.demo.dto.CreateUserDto;
 import com.example.demo.dto.UpdateUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.repository.CustomerRepository;
+import com.example.demo.repository.DriverRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.service.IRegistrationRequestService;
+import com.example.demo.service.IRoleService;
 import com.example.demo.service.IUserService;
 import net.bytebuddy.utility.RandomString;
 import org.modelmapper.ModelMapper;
@@ -35,7 +39,13 @@ public class UserService implements IUserService {
     CustomerRepository customerRepository;
 
     @Autowired
-    private RoleService roleService;
+    DriverRepository driverRepository;
+
+    @Autowired
+    private IRoleService roleService;
+
+    @Autowired
+    private IRegistrationRequestService registrationRequestService;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -73,13 +83,14 @@ public class UserService implements IUserService {
     @Override
     public User createDriver(CreateUserDto dto) {
         String randomCode = RandomString.make(64);
-        Customer customer = new Customer(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getVerificationCode());
-        customer.setVerificationCode(randomCode);
+        Driver driver = new Driver(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getVerificationCode());
 
-        List<Role> roles = roleService.findByName("ROLE_CUSTOMER");
-        customer.setRoles(roles);
+        List<Role> roles = roleService.findByName("ROLE_DRIVER");
+        driver.setRoles(roles);
 
-        customerRepository.save(customer);
+        registrationRequestService.createRegistrationRequest(driver.getUsername());
+
+        return driverRepository.save(driver);
     }
 
     @Override

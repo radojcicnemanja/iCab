@@ -7,12 +7,15 @@ public class CreateUserDto {
     private String password;
     private String email;
     private String phoneNumber;
-
     private String verificationCode;
+    private String role;
+
+    private String carDescription;
 
     public CreateUserDto() {}
 
-    public CreateUserDto(String name, String lastName, String username, String password, String email, String phoneNumber, String verificationCode) {
+    public CreateUserDto(String name, String lastName, String username, String password, String email,
+                         String phoneNumber, String verificationCode, String role, String carDescription) {
         this.name = name;
         this.lastName = lastName;
         this.username = username;
@@ -20,6 +23,8 @@ public class CreateUserDto {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.verificationCode = verificationCode;
+        this.role = role;
+        this.carDescription = carDescription;
     }
 
     public String getName() {
@@ -73,8 +78,23 @@ public class CreateUserDto {
     public String getVerificationCode() {
         return verificationCode;
     }
-
     public void setVerificationCode(String verificationCode) {
         this.verificationCode = verificationCode;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getCarDescription() {
+        return carDescription;
+    }
+
+    public void setCarDescription(String carDescription) {
+        this.carDescription = carDescription;
     }
 }

@@ -1,14 +1,15 @@
 package com.example.demo.dto;
 
-public class UserDto {
+public class DriverDto {
     private Integer id;
     private String username;
     private String name;
     private String lastName;
     private String email;
     private String phoneNumber;
+    private String carDescription;
 
-    public UserDto() {}
+    public DriverDto(){}
 
     public Integer getId() {
         return id;
@@ -16,6 +17,14 @@ public class UserDto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -50,11 +59,11 @@ public class UserDto {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getUsername() {
-        return username;
+    public String getCarDescription() {
+        return carDescription;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCarDescription(String carDescription) {
+        this.carDescription = carDescription;
     }
 }

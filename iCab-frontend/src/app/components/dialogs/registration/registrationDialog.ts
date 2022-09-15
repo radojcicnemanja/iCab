@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
 import {DynamicDialogConfig} from 'primeng/dynamicdialog';
-import { RegistrationService } from '../../login/registration.service';
+import { RegistrationService } from 'src/app/service/registration/registration.service';
 
 @Component({
     templateUrl: './registrationDialog.html',
@@ -32,10 +32,16 @@ export class RegistrationDialog {
             "phoneNumber": this.phoneNumber,
             "password": this.password,
             "username": this.username,
-            "verificationCode": ""
+            "verificationCode": "",
+            "role": this.user,
+            "carDescription": this.carDescription
         }
         this._registrationService.registerUser(user).subscribe(
             data => console.log('success', data),
             error => console.log('error', error))
+    }
+
+    close(){
+        this.ref.close()
     }
 }
