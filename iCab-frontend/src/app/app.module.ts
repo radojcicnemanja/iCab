@@ -11,6 +11,13 @@ import {DividerModule} from 'primeng/divider';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {TabViewModule} from 'primeng/tabview';
 import {TableModule} from 'primeng/table';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {CardModule} from 'primeng/card';
+import {PanelModule} from 'primeng/panel';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {RatingModule} from 'primeng/rating';
+import {ScrollerModule} from 'primeng/scroller';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -23,6 +30,11 @@ import { HomePageAdminComponent } from './components/admin/home-page-admin/home-
 import { UsersPageAdminComponent } from './components/admin/users-page-admin/users-page-admin.component';
 import { RequestsPageAdminComponent } from './components/admin/requests-page-admin/requests-page-admin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatComponent } from './components/chat/chat.component';
+import { HomePageCustomerComponent } from './components/customer/home-page-customer/home-page-customer.component';
+import { UsersPageCustomerComponent } from './components/customer/users-page-customer/users-page-customer.component';
+import { HomePageDriverComponent } from './components/driver/home-page-driver/home-page-driver.component';
+import { ReviewsPageDriverComponent } from './components/driver/reviews-page-driver/reviews-page-driver.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +44,12 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     HomePageAdminComponent,
     UsersPageAdminComponent,
-    RequestsPageAdminComponent
+    RequestsPageAdminComponent,
+    ChatComponent,
+    HomePageCustomerComponent,
+    UsersPageCustomerComponent,
+    HomePageDriverComponent,
+    ReviewsPageDriverComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +67,14 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextareaModule,
     TabViewModule,
     TableModule,
-    HttpClientModule 
+    HttpClientModule ,
+    MessagesModule,
+    MessageModule,
+    CardModule,
+    PanelModule,
+    ScrollPanelModule,
+    RatingModule,
+    ScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

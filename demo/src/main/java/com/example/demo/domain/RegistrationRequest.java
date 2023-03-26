@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 public class RegistrationRequest {
     @Id
-    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 14, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userIdSeqGen")
+    @SequenceGenerator(name = "requestIdSeqGen", sequenceName = "requestIdSeq", initialValue = 14, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "requestIdSeqGen")
     private Integer id;
 
     @Column(name = "username", unique = true, nullable = false)

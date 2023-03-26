@@ -25,6 +25,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -83,7 +84,7 @@ public class UserService implements IUserService {
     @Override
     public User createDriver(CreateUserDto dto) {
         String randomCode = RandomString.make(64);
-        Driver driver = new Driver(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getVerificationCode());
+        Driver driver = new Driver(dto.getName(), dto.getLastName(), dto.getUsername(), passwordEncoder.encode(dto.getPassword()), dto.getEmail(), dto.getPhoneNumber(), dto.getCarDescription());
 
         List<Role> roles = roleService.findByName("ROLE_DRIVER");
         driver.setRoles(roles);
@@ -152,5 +153,16 @@ public class UserService implements IUserService {
             return true;
         }
 
+    }
+
+    @Override
+    public User getByUsername(String username) {
+        User user = userRepository.findByUsername(username);
+        return user;
+    }
+
+    @Override
+    public Collection<Driver> getAllDrivers() {
+        return driverRepository.findAll();
     }
 }

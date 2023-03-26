@@ -14,4 +14,12 @@ export class UserService {
   public getAllUsers(){
     return this.http.get(this._url + 'users/')
   }
+
+  public getAllDrivers(){
+    return this.http.get(this._url + 'users/getDrivers')
+  }
+
+  public getByUsername(username: string){
+    return this.http.get(this._url + 'users/getByUsername/' + username)
+  }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CreateUserDto;
+import com.example.demo.dto.DriverDto;
 import com.example.demo.dto.UpdateUserDto;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.IUserService;
@@ -32,6 +33,20 @@ public class UserController {
                 .stream()
                 .map(user -> modelMapper.map(user, UserDto.class))
                 .collect(Collectors.toList()), HttpStatus.OK);
+    }
+
+    @GetMapping("/getDrivers")
+    public ResponseEntity<Collection<DriverDto>> getDrivers(){
+        return new ResponseEntity<Collection<DriverDto>>(userService.getAllDrivers()
+                .stream()
+                .map(driver -> modelMapper.map(driver, DriverDto.class))
+                .collect(Collectors.toList()), HttpStatus.OK);
+    }
+
+    @GetMapping("/getByUsername/{username}")
+    public ResponseEntity<UserDto> getByUsername(@PathVariable String username){
+        return new ResponseEntity<UserDto>(modelMapper.map(userService.getByUsername(username), UserDto.class), HttpStatus.OK);
+
     }
 
 //    @PostMapping("/")

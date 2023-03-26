@@ -1,0 +1,29 @@
+<div class="box">
+    <div class="row">
+        <div class="col-md-2">
+            <a (click)="logout()" style="margin-left: 5%; margin-top: 5%;">
+                <button pButton pRipple type="button" label="Logout" icon="pi pi-sign-out"
+                class="p-button-primary" style="margin-left: 5%; margin-top: 5%;">
+            </button>
+            </a>
+        </div>
+        <div class="col-md-10">
+            <p-tabView styleClass="tabview-custom" [(activeIndex)]="activeIndex">
+                <p-tabPanel header="Header II">
+                    <ng-template pTemplate="header">
+                        <i class="pi pi-users"></i>
+                        <span>Drivers</span>
+                    </ng-template>
+                    <app-users-page-customer (activeIndex)="do($event)"></app-users-page-customer>
+                </p-tabPanel>
+                <p-tabPanel header="Header III">
+                    <ng-template pTemplate="header">
+                        <i class="pi pi-user-plus"></i>
+                        <span>Chat</span>
+                    </ng-template>
+                    <app-chat></app-chat>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</div>

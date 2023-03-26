@@ -18,6 +18,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -70,13 +72,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 
-        web.ignoring().antMatchers(HttpMethod.POST, "/api/login/");
+        web.ignoring().antMatchers(HttpMethod.POST, "/api/login/", "/api/messages/getMessages");
 
-        web.ignoring().antMatchers(HttpMethod.GET, "/api/login/whoami/{username}", "/api/registration/",
-                "/api/users/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html",
-                "/**/*.css", "/**/*.js");
+        web.ignoring().antMatchers(HttpMethod.GET, "/api/login/whoami/{username}", "/api/users/getByUsername/{username}",
+                "/api/registration/", "/api/users/getByUsername/{username}", "/api/messages/getChats/{username}", "/chat/**",
+                "/api/users/getDrivers",
+                "/webjars/**", "/*.html", "favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
         web.ignoring().antMatchers(HttpMethod.DELETE, "/api/registration/{username}");
     }
-
-
 }

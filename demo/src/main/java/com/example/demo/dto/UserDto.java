@@ -1,5 +1,9 @@
 package com.example.demo.dto;
 
+import com.example.demo.domain.Role;
+
+import java.util.List;
+
 public class UserDto {
     private Integer id;
     private String username;
@@ -7,6 +11,7 @@ public class UserDto {
     private String lastName;
     private String email;
     private String phoneNumber;
+    private List<Role> roles;
 
     public UserDto() {}
 
@@ -56,5 +61,13 @@ public class UserDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

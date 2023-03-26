@@ -1,0 +1,27 @@
+<div class="container-fluid mt-2 mb-5" style="padding: 50px;">
+    <div class="products">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row g-3">
+                    <div class="col-md-4 cottageDiv" *ngFor="let user of users">
+                        <p-card header="{{user.name}} {{user.lastName}}" subheader="{{ user.carDescription }}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+                            <ng-template pTemplate="header">
+                                <img alt="Card" src="assets/images/download.jpg">
+                            </ng-template>
+                            <p>Phone: {{ user.phoneNumber }}</p>
+                            <div class="d-flex align-items-center flex-row">
+                                <p-rating [ngModel]="5" [cancel]="false"></p-rating>
+                                <span class="guarantee"></span>
+                            </div>
+                            <ng-template pTemplate="footer">
+                                <a (click)="goToChat(user)" style="margin-left: 5%">
+                                    <button pButton pRipple type="button" label="Chat" class="p-button-primary"></button>
+                                </a>
+                            </ng-template>
+                        </p-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
